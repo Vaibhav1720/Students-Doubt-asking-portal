@@ -8,6 +8,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+<style>
+  .d { 
+  display: block;
+  width: 75%;
+  background: #D3D3D3;
+  align: center;
+  margin: auto;
+  border: 3px solid gray;
+  padding: 10px;
+  margin-bottom: 25px;
+}
+</style>
 <body>
 
 <nav class="navbar navbar-inverse">
@@ -16,16 +28,48 @@
       <a class="navbar-brand" href="#">Coding Ninja</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><%= link_to "Raise Doubt", new_article_path %></li>
+      <li ><a href="http://localhost:3000/">Home</a></li>
+      <li ><a href="http://localhost:3000/articles/new">Raise Doubt</a></li>
     </ul>
   </div>
 </nav>
-  
+  <h1>&nbsp &nbsp Home</h1>
 <ul>
   <% @articles.each do |article| %>
     <li>
-      <%= link_to article.title, article %>
+    <div class="d">
+      <h1><%= article.title %></h1>
+      <br>
+      <%= article.body %>
+
+      <h2>Comments</h2>
+      <% article.comments.each do |comment| %>
+        <p>
+          <strong>Commenter:</strong>
+          <%= comment.commenter %>
+        </p>
+
+        <p>
+          <strong>Comment:</strong>
+          <%= comment.body %>
+        </p>
+      <% end %>
+
+      <h2>Add a comment:</h2>
+      <%= form_with model: [ article, article.comments.build ] do |form| %>
+        <p>
+          <%= form.label :commenter %><br>
+          <%= form.text_field :commenter %>
+        </p>
+        <p>
+          <%= form.label :body %><br>
+          <%= form.text_area :body %>
+        </p>
+        <p>
+          <%= form.submit %>
+        </p>
+      <% end %>
+    </div>
     </li>
   <% end %>
 </ul>
