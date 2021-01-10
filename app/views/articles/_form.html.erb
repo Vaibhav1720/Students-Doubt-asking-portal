@@ -1,21 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Doubt Portal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="t">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Coding Ninja</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><%= link_to "Raise Doubt", new_article_path %></li>
+    </ul>
+  </div>
+</nav>
+</div>
+
+<style> 
+.t{
+  position:fixed;
+  top:0px;
+  width:100%;
+}
+  .d { 
+  display: block;
+  width: 80%;
+  background: #D3D3D3;
+  align: center;
+  margin: auto;
+  border: 3px solid gray;
+  padding: 10px;
+}
+</style>
+  <div>
+     <h1>Raise Doubt</h1>
+  </div>
+<div class="d">
 <%= form_with model: article do |form| %>
   <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.label :Title %><br>
+    <%= form.text_field :Title %>
     <%= article.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
+    <%= form.label :Description %><br>
+    <%= form.text_area :Description %><br>
     <%= article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Ask" %>
   </div>
 <% end %>
+</div>
+</body>
