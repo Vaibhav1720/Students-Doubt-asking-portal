@@ -1,5 +1,41 @@
-<h1>New Article</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Doubt Portal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+  .d { 
+  display: block;
+  width: 75%;
+  background: #D3D3D3;
+  align: center;
+  margin: auto;
+  border: 3px solid gray;
+  padding: 10px;
+  margin-bottom: 25px;
+}
+</style>
+<body>
 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Coding Ninja</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href="http://localhost:3000/">Home</a></li>
+      <li ><a href="http://localhost:3000/articles/new">Raise Doubt</a></li>
+    </ul>
+  </div>
+</nav>
+
+<h1>Raise Doubt</h1>
+<div class="d">
 <%= form_with model: @article do |form| %>
   <div>
     <%= form.label :title %><br>
@@ -20,6 +56,8 @@
   <div>
     <%= form.submit %>
   </div>
+  <div>
 <% end %>
+</body>
 
 
